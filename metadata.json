@@ -1,0 +1,6 @@
+{
+  "name": "Custom Car Mats - UK Premium Tailored Car Mats",
+  "description": "Precision-fit custom car mats engineered for your vehicle. Handcrafted luxury carpet, all-weather rubber, and tailored prestige car floor mats with fast UK delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

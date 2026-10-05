@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var curFetch = window.fetch;
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (!desc || !desc.set) {
+            Object.defineProperty(window, 'fetch', {
+              get: function() {
+                return curFetch;
+              },
+              set: function(fn) {
+                curFetch = fn;
+              },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          try {
+            var proto = Object.getPrototypeOf(window) || (typeof Window !== 'undefined' && Window.prototype);
+            if (proto) {
+              var pDesc = Object.getOwnPropertyDescriptor(proto, 'fetch');
+              if (!pDesc || !pDesc.set) {
+                var pFetch = window.fetch;
+                Object.defineProperty(proto, 'fetch', {
+                  get: function() {
+                    return pFetch;
+                  },
+                  set: function(fn) {
+                    pFetch = fn;
+                  },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
+    <title>Custom Car Mats - UK Premium Tailored Car Mats</title>
+    <meta name="description" content="Precision-fit custom car mats engineered for your vehicle. Handcrafted luxury carpet, all-weather rubber, and tailored prestige car floor mats with fast UK delivery." />
+    <meta property="og:title" content="Custom Car Mats - UK Premium Tailored Car Mats" />
+    <meta property="og:description" content="Precision-fit custom car mats engineered for your vehicle. Handcrafted luxury carpet, all-weather rubber, and tailored prestige car floor mats with fast UK delivery." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#F5F7FA] text-[#111827] antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
