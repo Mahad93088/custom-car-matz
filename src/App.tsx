@@ -138,6 +138,15 @@ function MainApp() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Track PageView on route / tab navigation for Meta Pixel
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'PageView');
+      }
+    } catch {}
+  }, [currentPublicTab, currentParam, isAdminMode]);
+
   const navigatePublic = (tab: string, param?: string) => {
     setIsAdminMode(false);
     setCurrentPublicTab(tab);
